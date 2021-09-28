@@ -1,0 +1,10 @@
+baseURL = 'https://rschanz.org/'
+languageCode = 'en-us'
+title = 'Ryan Schanzenbacher'
+theme = 'hugo-coder'
+
+[menu]
+[[menu.main]]
+  identifier = 'test'
+  name = 'Test'
+  url = '/test'
