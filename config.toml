@@ -3,8 +3,41 @@ languageCode = 'en-us'
 title = 'Ryan Schanzenbacher'
 theme = 'hugo-coder'
 
-[menu]
+[params]
+author = "Ryan Schanzenbacher"
+info = "Second Year Computing Security Student"
+keywords = "blog,personal"
+description = "Ryan Schanzenbacher's Personal website"
+hideCredits = true
+colorScheme = "dark"
+hideColorSchemeToggle = true
+
+[[params.social]]
+  name = "Github"
+  icon = "fa fa-github fa-2x"
+  weight = 1
+  url = "https://github.com/ryan77627/"
+[[params.social]]
+  name = "LinkedIn"
+  url = "https://www.linkedin.com/in/ryan-schanzenbacher"
+  weight = 2
+  icon = "fa fa-linkedin fa-2x"
+[[params.social]]
+  name = "Email"
+  weight = 3
+  url = "mailto:rjs1877@rit.edu"
+  icon = "fa fa-envelope fa-2x"
+[[params.social]]
+  name = "Resume"
+  weight = 4
+  url = /static/RyanSchanzenbacher
+
+#[[menu.main]]
+#  name = "About"
+#  weight = 1
+#  url = "/about"
+
 [[menu.main]]
-  identifier = 'test'
-  name = 'Test'
-  url = '/test'
+  name = "Projects"
+  weight = 2
+  url = "/projects"
