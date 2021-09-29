@@ -1,0 +1,30 @@
+---
+title: "Stoic Productions"
+date: 2021-09-24T21:42:44-04:00
+draft: false
+type: posts
+---
+
+![The homepage of Stoic Productions as it appeared on 9/28/2021](/imgs/posts/stoic/main.png)
+<sup>The homepage of Stoic Productions as it appeared on 9/28/2021</sup>
+
+## One of my biggest personal projects to date has been Stoic Productions.
+
+### Some history
+
+However, I think I should begin with a little history about what this actually is. Around halfway through my 10th grade year in high school, my friend (coincidentally also named Ryan!) and I joined the film society. We didn't know what exactly to expect, however we both thought we'd give it a shot. We attempted to make a film way back when, around 7th grade, but as you may expect of middle schoolers that didn't go well. Legend has it, the second half of that film can still be recovered to this day! Anyways, we joined and figured we should either go all in or not at all. So we came up with a name, and I offered to make a simple website; nothing too fancy. I wanted to differentiate us from the crowd. So, I spent about a week of my free time learning how to just "put up a website." I knew I wanted it to be free (or as close to free as possible), so I knew I had to do everything myself. As time went on, our needs grew; I also used the site as a way to try out different things that I thought would be useful too. Fast forward to today, Stoic Productions is a tightly integrated collection of services to provide a common goal to end users: provide our films and let us receive feedback.
+
+### Current Architecture
+
+I'd like to lay out the current set of services we utilize to run Stoic Productions and give a small overview for each of their purposes:
+  - Dell Workstation: I'm not entirely sure of the model currently, however it is the machine that runs Stoic Productions, among other things
+    - Runs a very stripped down version of linux with none of its ports actually exposed to the Internet. Contains the bare minimum to run KVM machines, managed using libvirt.
+    - The rationale behind this is all of Stoic Productions' services run in an OpenSUSE Leap VM. This is done for two reasons. First, it keeps other services I have running for my own personal use separate from Stoic Productions' services. Second, it means that if anything happens to my personal services (perhaps I underestimate the memory something may use), the website stays available since its VM won't crash.
+  - Reverse Proxy: This is another physical machine, and it's sole purpose is to be as invisible as possible. I put this in when I was having stability issues with an old machine the server used to run on. Its job is if it cannot reach the main server, it will serve a backed up copy of the main site and display a nice error page to describe the problem to the user, rather than them getting an error like "No route to host"
+  - NGINX: This is the main content provider for our website. Any service that we utilize through a web browser will go through this. This application manages requests for our subdomains and routes each request to their respective endpoint.
+  - Postfix & Dovecot: I'm going to group these together as they form the "email" portion of the server. Postfix is used as an MTU to send and receive messages while Dovecot is used to allow IMAP clients to actually view the messages we've gotten. In the background, I run spamassassin, have potential senders get screened by blacklists like Spamhaus' SBL, and emails also get screened through clamav for potential viruses.
+  - Nextcloud: I've set this up for internal use. It's what our team (currently about 12 members, but fluctuates with each production cycle) uses to share files with one another. We use this over things like Google Drive simply because the data stays completely in-house.
+  - Discourse Forum: This is the site people can use to talk with us, view our films, or talk with others about our films. It's run inside of a docker container to provide to allow it to be run as "a service" rather than trying to install all of its dependencies (like Ruby on Rails) and making the underlying system a tangled mess. I've added customizations to allow for the proper embedding of our video player.
+  - OvenMediaEncoder: This is seldom used, but it is our service that allows us to host a live stream. Usually used when we are premiering a new film, we use this plus chat extensions within Discourse to provide end users a "Youtube like" stream experience
+  - KeyCloak: Arguably one of the most important services being run, this is our Authentication and Identity Federation server. Most of our services (like Nextcloud and Discourse) use either SAML or OpenID to communicate with the Keycloak instance. For services that need access to the user accounts that may not be able to take advatntage of either technology, we fall back to the LDAP protocol. Most applications that need some sort of authentication will provide a mechanism to use LDAP. This is how we authenticate Postfix and Dovecot with our users. It allows me to make the users once and have them propogate everywhere. I also had to implement custom LDAP attributes to reflect whether a user was enabled in Keycloak or not to better control login access.
+  - Main Site: for the main site, I used to use Wordpress to generate the site and all of its content. However, around January of 2021, I took two afternoons and converted the theme to a Hugo theme (essentially picked and chose items and rebuilt the HTML in a Hugo way) and converted the site to a statically generated site using Hugo. This closed a huge attack platform off, sped up our website, sped up my development, and decreased the load on the server. Instead of waiting for PHP to execute and make my way through half a dozen menus just to update a word or phrase, I can now just use Git to manage the website. Plus, I set-up a webhook from the Git Repo (hosted privately by me as well) to detect whenever I push a change and rebuild the site, allowing near instant changes to be made on the website.

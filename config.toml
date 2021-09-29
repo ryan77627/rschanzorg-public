@@ -3,6 +3,9 @@ languageCode = 'en-us'
 title = 'Ryan Schanzenbacher'
 theme = 'hugo-coder'
 
+[markup.goldmark.renderer]
+unsafe=true
+
 [params]
 author = "Ryan Schanzenbacher"
 info = "Second Year Computing Security Student"
