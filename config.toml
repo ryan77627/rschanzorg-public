@@ -31,7 +31,7 @@ hideColorSchemeToggle = true
   name = "Resume"
   weight = 4
   icon = "fa fa-file-text-o fa-2x"
-  url = "/static/Schanzenbacher_Ryan_Resume.pdf"
+  url = "/resume/Schanzenbacher_Ryan_Resume.pdf"
 
 #[[menu.main]]
 #  name = "About"
