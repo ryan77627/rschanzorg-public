@@ -30,7 +30,8 @@ hideColorSchemeToggle = true
 [[params.social]]
   name = "Resume"
   weight = 4
-  url = /static/RyanSchanzenbacher
+  icon = "fa fa-file-text-o fa-2x"
+  url = "/static/Schanzenbacher_Ryan_Resume.pdf"
 
 #[[menu.main]]
 #  name = "About"
