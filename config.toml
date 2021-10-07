@@ -14,6 +14,7 @@ description = "Ryan Schanzenbacher's Personal website"
 hideCredits = true
 colorScheme = "dark"
 hideColorSchemeToggle = true
+avatarURL = "/imgs/profile/avatar.jpg"
 
 [[params.social]]
   name = "Github"
@@ -35,7 +36,6 @@ hideColorSchemeToggle = true
   weight = 4
   icon = "fa fa-file-text-o fa-2x"
   url = "/resume/Schanzenbacher_Ryan_Resume.pdf"
-  
 [[params.social]]
   name = "GPG Key"
   weight = 5
