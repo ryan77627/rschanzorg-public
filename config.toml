@@ -14,7 +14,7 @@ description = "Ryan Schanzenbacher's Personal website"
 hideCredits = true
 colorScheme = "dark"
 hideColorSchemeToggle = true
-avatarURL = "/imgs/profile/avatar.jpg"
+avatarURL = "/imgs/profile/avatar.png"
 
 [[params.social]]
   name = "Github"
