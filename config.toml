@@ -39,7 +39,7 @@ hideColorSchemeToggle = true
 [[params.social]]
   name = "GPG Key"
   weight = 5
-  icon = "fa fa-modern-key fa-2x"
+  icon = "fa fa-key-modern fa-2x"
   url = "gpgkey.asc"
 
 #[[menu.main]]
