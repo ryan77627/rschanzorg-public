@@ -35,6 +35,12 @@ hideColorSchemeToggle = true
   weight = 4
   icon = "fa fa-file-text-o fa-2x"
   url = "/resume/Schanzenbacher_Ryan_Resume.pdf"
+  
+[[params.social]]
+  name = "GPG Key"
+  weight = 5
+  icon = "fa fa-modern-key fa-2x"
+  url = "gpgkey.asc"
 
 #[[menu.main]]
 #  name = "About"
