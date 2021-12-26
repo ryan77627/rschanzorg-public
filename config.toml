@@ -37,17 +37,17 @@ avatarURL = "/imgs/profile/avatar.png"
   name = "Resume"
   weight = 4
   icon = "fa fa-file-text-o fa-2x"
-  url = "/resume/Schanzenbacher_Ryan_Resume.pdf"
-#[[menu.main]]
-#  name = "About"
-#  weight = 1
-#  url = "/about"
+  url = "/resume/Schanzenbacher_Ryan_Resume.pdf"  
+[[params.social]]
+  name = "GPG Key"
+  weight = 5
+  icon = "fa fa-key-modern fa-2x"
+  url = "gpgkey.asc"
 
 [[menu.main]]
   name = "Projects"
   weight = 2
   url = "/projects"
-
 [[menu.main]]
   name = "About"
   weight = 1
