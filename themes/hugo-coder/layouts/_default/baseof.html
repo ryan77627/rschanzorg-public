@@ -103,15 +103,12 @@
   <body class="preload-transitions {{ $csClass }}{{ if .Site.Params.rtl }} rtl{{ end }}"
         onload="{{ if .Site.Params.enableTwemoji }} twemoji.parse(document.body); {{ end }}"
   >
-  <script src="//cdnjs.cloudflare.com/ajax/libs/Snowstorm/20131208/snowstorm-min.js"></script>
-  <script>snowStorm.followMouse = false;</script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/Snowstorm/20131208/snowstorm-min.js"></script>
-  <script>snowStorm.followMouse = false;</script>
+  <div id=fireworksContainer style="position: fixed; left: 0; top: 0; width: 100%; height: 100%; z-index: 2; pointer-events: none;"></div>
     {{ partial "float" . }}
     <main class="wrapper">
       {{ partial "header.html" . }}
 
-      <div class="content">
+      <div class="content" style="z-index: 3;">
         {{ block "content" . }}{{ end }}
       </div>
 
@@ -155,6 +152,50 @@
     {{ if and .Site.Params.googleTagManager .Site.Params.googleTagManager.id }}
       {{- partial "analytics/googletagmanager" . -}}
     {{ end }}
+
+  {{ if eq .URL "/" }}
+  <script src="https://cdn.jsdelivr.net/npm/fireworks-js@latest/dist/fireworks.js"></script>
+  <script>
+    const c = document.querySelector("#fireworksContainer")
+    const f = new Fireworks(c, {
+        "hue": {
+            "min": 0,
+            "max": 345
+        },
+        "delay": {
+            "min": 15,
+            "max": 20
+        },
+        "rocketsPoint": 27,
+        "opacity": 0.5,
+        "speed": 15,
+        "acceleration": 1.1,
+        "friction": 0.97,
+        "gravity": 1.5,
+        "particles": 150,
+        "trace": 6,
+        "explosion": 7,
+        "autoresize": true,
+        "brightness": {
+            "min": 50,
+            "max": 80,
+            "decay": {
+                "min": 0.015,
+                "max": 0.03
+            }
+        },
+        "boundaries": {
+        "x": 50,
+        "y": 50,
+        "width": 1920,
+        "height": 928,
+        "visible": false
+        },
+    })
+    f._randomRocketsPoint = true
+    f.start()
+  </script>
+  {{ end }}
   </body>
 
 </html>
