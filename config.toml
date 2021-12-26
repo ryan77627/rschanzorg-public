@@ -3,6 +3,8 @@ languageCode = 'en-us'
 title = 'Ryan Schanzenbacher'
 theme = 'hugo-coder'
 
+enableEmoji = true
+
 [markup.goldmark.renderer]
 unsafe=true
 
@@ -51,3 +53,8 @@ avatarURL = "/imgs/profile/avatar.png"
   name = "Projects"
   weight = 2
   url = "/projects"
+
+[[menu.main]]
+  name = "About"
+  weight = 1
+  url = "/about"
