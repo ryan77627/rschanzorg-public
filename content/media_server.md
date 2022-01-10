@@ -22,4 +22,4 @@ Just this past Christmas (2021), we ran into a breaking point. I was gifted a bo
 
 ## Planning the Solution
 
-So, we had this server that had a total of 6TB of storage and 32GB of RAM. This was *more* than enough for our needs. Since we were also looking to overhaul our home network, we decided to do both at the same time.
+So, we had this server that had a total of 6TB of storage and 32GB of RAM. This was *more* than enough for our needs. Since we were also looking to overhaul our home network, we decided to work on this as well.
