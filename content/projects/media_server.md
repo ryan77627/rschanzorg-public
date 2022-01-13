@@ -1,7 +1,7 @@
 ---
 title: "Home Media Server"
 date: 2022-01-10T16:05:04-05:00
-draft: true
+draft: false
 type: posts
 ---
 
