@@ -43,17 +43,16 @@ hideColorSchemeToggle = true
   weight = 5
   icon = "fa fa-key-modern fa-2x"
   url = "gpgkey.asc"
-
-#[[menu.main]]
-#  name = "About"
-#  weight = 1
-#  url = "/about"
+[[params.social]]
+  name = "Matrix Chat"
+  weight = 6
+  icon = "fa fa-matrix-org fa-2x"
+  url = "https://matrix.to/#/@ryan:ryan77627.xyz"
 
 [[menu.main]]
   name = "Projects"
   weight = 2
   url = "/projects"
-
 [[menu.main]]
   name = "About"
   weight = 1
