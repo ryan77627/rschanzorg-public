@@ -48,6 +48,11 @@ hideColorSchemeToggle = true
   weight = 6
   icon = "fa fa-matrix-org fa-2x"
   url = "https://matrix.to/#/@ryan:ryan77627.xyz"
+[[params.social]]
+  name = "Mastodon"
+  weight = 7
+  icon = "fa fa-mastodon fa-2x"
+  url = "https://social.ryan77627.xyz/@ryan"
 
 [[menu.main]]
   name = "Projects"
