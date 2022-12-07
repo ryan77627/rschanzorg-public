@@ -11,6 +11,35 @@
       {{ partial "csp.html" . }}
     {{ end }}
 
+    <style>
+    @keyframes snow {
+        0% {
+            transform: translate(var(--x), var(--y));
+        }
+        50% {
+            transform: translate(calc(var(--x) - var(--w)), calc(100vh - 5px));
+        }
+        100% {
+            transform: translate(calc(var(--x) - var(--w)), calc(100vh - 5px)) scale(0);
+        }
+    }
+
+    .snow {
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background-color: white;
+        position: absolute;
+        transform: translate(var(--x), var(--y));
+        animation: snow var(--s) linear var(--d) infinite;
+    }
+
+    body {
+        overflow: hidden;
+    }
+
+    </style>
+
     {{ with .Site.Params.author }}<meta name="author" content="{{ . }}">{{ end }}
     <meta name="description" content="{{ .Description | default (.Summary | default .Site.Params.description ) }}">
     <meta name="keywords" content="{{ (delimit .Keywords ",") | default .Site.Params.keywords }}">
@@ -106,6 +135,7 @@
   <!--
   <div id=fireworksContainer style="position: fixed; left: 0; top: 0; width: 100%; height: 100%; z-index: 2; pointer-events: none;"></div>
   -->
+  <div id="snow" style="position: absolute; top: 0; left: 0; height: 100vh; width: 100vw; --s: 10s; --w: 50vw; --d: 0s;"></div>
     {{ partial "float" . }}
     <main class="wrapper">
       {{ partial "header.html" . }}
@@ -155,7 +185,7 @@
       {{- partial "analytics/googletagmanager" . -}}
     {{ end }}
   <!--
-  {{ if eq .URL "/" }}
+  {{ if eq .RelPermalink "/" }}
   <script src="https://cdn.jsdelivr.net/npm/fireworks-js@latest/dist/fireworks.js"></script>
   <script>
     const c = document.querySelector("#fireworksContainer")
@@ -192,7 +222,17 @@
   </script>
   {{ end }}
   -->
-  <script src="//cdnjs.cloudflare.com/ajax/libs/Snowstorm/20131208/snowstorm-min.js"></script>
-  <script>snowStorm.followMouse = false;</script>
+  <script>
+      function r(min, max)  {
+            return Math.random() * (max - min) + min;
+        }
+
+        for(const _ of Array(250).fill(0)) {
+            const el = document.createElement("div");
+            el.className = "snow";
+            el.style = `--x: ${r(0, 200)}vw; --y: -${r(0, 100)}vh; --d: ${r(-20, 20)}s; --w: ${r(40, 70)}vw; --s: ${r(12, 20)}s;`;
+            snow.appendChild(el);
+        }
+  </script>
   </body>
 </html>
