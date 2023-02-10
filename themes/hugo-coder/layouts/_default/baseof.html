@@ -132,7 +132,7 @@
   <body class="preload-transitions {{ $csClass }}{{ if .Site.Params.rtl }} rtl{{ end }}"
         onload="{{ if .Site.Params.enableTwemoji }} twemoji.parse(document.body); {{ end }}"
   >
-  <div id=fireworksContainer style="position: fixed; left: 0; top: 0; width: 100%; height: 100%; z-index: 2; pointer-events: none;"></div>
+  <!-- <div id=fireworksContainer style="position: fixed; left: 0; top: 0; width: 100%; height: 100%; z-index: 2; pointer-events: none;"></div> -->
   <!--
   <div id="snow" style="position: absolute; top: 0; left: 0; height: 100vh; width: 100vw; --s: 10s; --w: 50vw; --d: 0s;"></div>
   -->
@@ -184,7 +184,7 @@
     {{ if and .Site.Params.googleTagManager .Site.Params.googleTagManager.id }}
       {{- partial "analytics/googletagmanager" . -}}
     {{ end }}
-  {{ if eq .RelPermalink "/" }}
+  <!-- {{ if eq .RelPermalink "/" }}
   <script src="https://cdn.jsdelivr.net/npm/fireworks-js@latest/dist/fireworks.js"></script>
   <script>
     const c = document.querySelector("#fireworksContainer")
@@ -219,7 +219,7 @@
     f._randomRocketsPoint = true
     f.start()
   </script>
-  {{ end }}
+  {{ end }} -->
   <!--
   <script>
       function r(min, max)  {
