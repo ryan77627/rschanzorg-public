@@ -1,6 +1,6 @@
 ---
 title: "De-googling my Life"
-date: 2023-06-13T13:00:00-05:00
+date: 2023-06-13T08:00:00-05:00
 draft: false
 ---
 
