@@ -10,7 +10,7 @@ unsafe=true
 
 [params]
 author = "Ryan Schanzenbacher"
-info = "Third Year Computing Security Student"
+info = "Fourth Year Cybersecurity Student"
 keywords = "blog,personal"
 description = "Ryan Schanzenbacher's Personal website"
 hideCredits = true
