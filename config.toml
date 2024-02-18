@@ -47,7 +47,7 @@ hideColorSchemeToggle = true
   name = "Matrix Chat"
   weight = 5
   icon = "fa fa-matrix-org fa-2x"
-  url = "https://matrix.to/#/@ryan:ryan77627.xyz"
+  url = "https://matrix.to/#/@ryan:rschanz.org"
 [[params.social]]
   name = "Mastodon"
   weight = 6
