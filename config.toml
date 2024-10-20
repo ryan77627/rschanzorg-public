@@ -20,7 +20,7 @@ hideColorSchemeToggle = true
 
 [[params.social]]
   name = "Git"
-  icon = "fa fa-git-alt fa-2x"
+  icon = "fa-brands fa-git-alt fa-2x"
   weight = 0
   url = "https://git.rschanz.org"
 [[params.social]]
