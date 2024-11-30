@@ -34,11 +34,9 @@
         animation: snow var(--s) linear var(--d) infinite;
     }
 
-    /**
     body {
         overflow: hidden;
     }
-    **/
 
     </style>
 
@@ -135,9 +133,9 @@
         onload="{{ if .Site.Params.enableTwemoji }} twemoji.parse(document.body); {{ end }}"
   >
   <!-- <div id=fireworksContainer style="position: fixed; left: 0; top: 0; width: 100%; height: 100%; z-index: 2; pointer-events: none;"></div> -->
-  <!--
+
   <div id="snow" style="position: absolute; top: 0; left: 0; height: 100vh; width: 100vw; --s: 10s; --w: 50vw; --d: 0s;"></div>
-  -->
+
     {{ partial "float" . }}
     <main class="wrapper">
       {{ partial "header.html" . }}
